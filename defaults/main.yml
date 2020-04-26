@@ -1,0 +1,47 @@
+---
+raspberry_pi_locale: "en_GB.UTF-8"
+
+raspberry_pi_timezone: "Europe/London"
+
+raspberry_pi_keyboard_layout: "gb"
+
+raspberry_pi_hostname: "raspberrypi"
+
+raspberry_pi_configure_network: false
+
+raspberry_pi_use_wifi: false
+
+raspberry_pi_upgrade_system: true
+
+raspberry_pi_packages:
+  - apt-transport-https
+  - bluetooth
+  - bluez
+  - bluez-tools
+  - build-essential
+  - curl
+  - dnsutils
+  - git
+  - htop
+  - lm-sensors
+  - rfkill
+  - rsync
+  - screen
+  - unzip
+  - vim
+
+#raspberry_pi_ip_address: 192.168.0.188/24
+
+#raspberry_pi_routers: 192.168.0.1
+
+# raspberry_pi_dns_servers:
+#   - 127.0.0.1
+#   - 8.8.8.8
+
+# raspberry_pi_wifi_country: AR
+
+# raspberry_pi_wifi_ssid: ""
+
+# raspberry_pi_wifi_password: ""
+
+

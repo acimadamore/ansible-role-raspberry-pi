@@ -1,0 +1,18 @@
+# ref. wpa_supplicant.conf(5) manual page.
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+
+{% if raspberry_pi_wifi_country is defined and raspberry_pi_wifi_country != "" %}
+country={{ raspberry_pi_wifi_country }}
+{% endif %}
+
+network={
+        scan_ssid=1
+        ssid="{{ raspberry_pi_wifi_ssid  }}"
+{% if raspberry_pi_wifi_password is defined and raspberry_pi_wifi_password != "" %}
+        psk="{{ raspberry_pi_wifi_password  }}"
+{% else %}
+        key_mgmt=NONE
+{% endif %}
+
+}

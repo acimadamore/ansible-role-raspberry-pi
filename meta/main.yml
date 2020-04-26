@@ -1,0 +1,23 @@
+galaxy_info:
+  role_name: raspberry_pi
+  author: acimadamore
+  description: Basic setup of a Raspberry Pi with Raspbian OS
+
+  license: MIT
+
+  min_ansible_version: 2.4
+
+  platforms:
+    - name: Debian
+      versions:
+        - stretch
+        - buster
+
+  galaxy_tags: 
+    - raspberry
+    - pi
+    - raspberrypi
+    - raspbian
+    - setup
+
+dependencies: []
