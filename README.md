@@ -26,7 +26,7 @@ Variable                          | Default value | Description/Comment
 **raspberry_pi_routers**          |               | Default Gateaway of the network. Required when *raspberry_pi_configure_network* is true 
 **raspberry_pi_dns_servers**      |               | List of DNS servers to use. Required when *raspberry_pi_configure_network* is true
 **raspberry_pi_use_wifi**         | false         | Use Wi-Fi instead of wired connection 
-**raspberry_pi_wifi_country**     |               | ISO/IEC alpha2 country code. Complete list [here](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements)
+**raspberry_pi_wifi_country**     |               | ISO/IEC alpha2 country code. Complete list [here](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements). Required if you're using a RPi 3 B+ or Higher.
 **raspberry_pi_wifi_ssid**        |               | Wi-Fi SSID. Required when *raspberry_pi_use_wifi* is true
 **raspberry_pi_wifi_password**    |               | Wi-Fi password. Do not set or leave as an empty string if the Wi-Fi network doesn't have a passphrase
 **raspberry_pi_upgrade_system**   | true          | Whether or not to upgrade the system.
@@ -34,7 +34,7 @@ Variable                          | Default value | Description/Comment
 
 The default values are the same used by a fresh install of Raspbian OS. Keyboard model is assumed to be "pc105" with "guess" backspace(check [keyboard(5) man pages](https://manpages.debian.org/jessie/keyboard-configuration/keyboard.5.en.html) for more information.
 
-**Default packages**: apt-transport-https, bluetooth, bluez, bluez-tools, build-essential, curl, dnsutils, git, htop, lm-sensors, rfkill, rsync, screen, unzip, vim. 
+**Default packages**: apt-transport-https, build-essential, curl, dnsutils, git, htop, lm-sensors, lshw, rsync, screen, unzip, vim. 
 
 Dependencies
 ------------
@@ -60,7 +60,7 @@ This playbook will only upgrade the system and install the default packages.
 
 A full example:
 
-```ỳaml
+```yaml
 ---
 - hosts: my_raspberry_pi
   become: true
