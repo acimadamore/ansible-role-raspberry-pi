@@ -5,10 +5,12 @@ An Ansible Role for setup a Raspberry Pi with Raspbian OS.
 
 Basic configuration of hostname, locales, timezone, keyboard, network and WiFi. Package installation and system upgrade.
 
+[![Ansible Galaxy](https://img.shields.io/badge/ansible--galaxy-raspberry--pi-blue)](https://galaxy.ansible.com/acimadamore/raspberry_pi/)
+
 Requirements
 ------------
 
-None.
+This role uses Ansible's *json\_query* filter that requires JMESPath to be installed on the control node.
 
 Role Variables
 --------------
