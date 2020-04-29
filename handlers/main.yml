@@ -12,4 +12,3 @@
     state: restarted
     daemon_reload: yes
   listen: "restart network"
-

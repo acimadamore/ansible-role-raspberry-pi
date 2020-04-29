@@ -12,4 +12,3 @@
   template:
     src: ./templates/keyboard.j2
     dest: /etc/default/keyboard
-
