@@ -1,4 +1,7 @@
 ---
+- name: apply wi-fi configuration
+  command: wpa_cli -i wlan0 reconfigure
+
 - name: Flush IP from interface
   command: "ip addr flush dev {{ (raspberry_pi_use_wifi | bool) | ternary('wlan0', 'eth0') }}"
   listen: "restart network"

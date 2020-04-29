@@ -1,11 +1,17 @@
 ---
+- name: Check if Wi-Fi is soft blocked
+  command: rfkill -J
+  changed_when: False
+  register: rfkill_result
+
 - name: Remove Wi-Fi soft block
   command: rfkill unblock wlan
+  when: (rfkill_result.stdout | from_json | json_query(rfkill_query) | join) == "blocked"
+  vars:
+    rfkill_query: "\"\"[?type=='wlan'].soft"
 
 - name: Configure Wi-Fi
   template:
     src: ./templates/wpa_supplicant.conf.j2
     dest: /etc/wpa_supplicant/wpa_supplicant.conf
-
-- name: Apply new Wi-Fi configuration
-  command: wpa_cli -i wlan0 reconfigure
+  notify: apply wi-fi configuration
