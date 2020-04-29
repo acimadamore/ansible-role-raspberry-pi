@@ -13,7 +13,7 @@ galaxy_info:
         - stretch
         - buster
 
-  galaxy_tags: 
+  galaxy_tags:
     - raspberry
     - pi
     - raspberrypi
