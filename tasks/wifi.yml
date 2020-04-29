@@ -1,0 +1,11 @@
+---
+- name: Remove Wi-Fi soft block
+  command: rfkill unblock wlan
+
+- name: Configure Wi-Fi
+  template:
+    src: ./templates/wpa_supplicant.conf.j2
+    dest: /etc/wpa_supplicant/wpa_supplicant.conf
+
+- name: Apply new Wi-Fi configuration
+  command: wpa_cli -i wlan0 reconfigure

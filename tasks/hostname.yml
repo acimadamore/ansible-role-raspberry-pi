@@ -1,0 +1,11 @@
+---
+- name: Configure hostname
+  hostname:
+    name: "{{ raspberry_pi_hostname }}"
+
+- name: Change hostname in hosts file
+  lineinfile:
+    path: /etc/hosts
+    regexp: '^127\.0\.1\.1'
+    line: "127.0.1.1       {{ raspberry_pi_hostname }}"
+

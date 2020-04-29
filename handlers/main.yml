@@ -1,0 +1,12 @@
+---
+- name: Flush IP from interface
+  command: "ip addr flush dev {{ (raspberry_pi_use_wifi | bool) | ternary('wlan0', 'eth0') }}"
+  listen: "restart network"
+
+- name: Restart dhcpcd
+  systemd:
+    name: dhcpcd
+    state: restarted
+    daemon_reload: yes
+  listen: "restart network"
+

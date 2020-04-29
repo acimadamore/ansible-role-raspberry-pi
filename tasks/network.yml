@@ -1,0 +1,11 @@
+---
+- name: Configure network
+  blockinfile:
+    path: /etc/dhcpcd.conf
+    marker: "<!-- {mark} RASPBERRY PI SETUP - STATIC NETWORK -->"
+    block: |
+      interface {{ (raspberry_pi_use_wifi | bool) | ternary('wlan0', 'eth0') }}
+      static ip_address={{ raspberry_pi_ip_address  }}
+      static routers={{ raspberry_pi_routers  }}
+      static domain_name_servers={{ raspberry_pi_dns_servers | join(' ') }}
+  notify: "restart network"

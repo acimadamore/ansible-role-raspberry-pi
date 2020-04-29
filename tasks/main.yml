@@ -1,53 +1,12 @@
 ---
+- import_tasks: localization.yml
 
-- name: Configure locale
-  locale_gen:
-    name: "{{ raspberry_pi_locale }}"
-    state: present
+- import_tasks: hostname.yml
 
-- name: Configure timezone
-  timezone:
-    name: "{{ raspberry_pi_timezone }}"
-
-- name: Configure keyboard
-  template:
-    src: ./templates/keyboard.j2
-    dest: /etc/default/keyboard
-
-- name: Configure hostname
-  hostname:
-    name: "{{ raspberry_pi_hostname }}"
-
-- name: Change hostname in hosts file
-  lineinfile:
-    path: /etc/hosts
-    regexp: '^127\.0\.1\.1'
-    line: "127.0.1.1       {{ raspberry_pi_hostname }}"
-
-- name: Configure network
-  blockinfile:
-    path: /etc/dhcpcd.conf
-    marker: "<!-- {mark} RASPBERRY PI SETUP - STATIC NETWORK -->"
-    block: |
-      interface {{ (raspberry_pi_use_wifi | bool) | ternary('wlan0', 'eth0') }}
-      static ip_address={{ raspberry_pi_ip_address  }}
-      static routers={{ raspberry_pi_routers  }}
-      static domain_name_servers={{ raspberry_pi_dns_servers | join(' ') }}
+- import_tasks: network.yml
   when: raspberry_pi_configure_network | bool
 
-- name: Configure Wi-Fi
-  template:
-    src: ./templates/wpa_supplicant.conf.j2
-    dest: /etc/wpa_supplicant/wpa_supplicant.conf
+- import_tasks: wifi.yml
   when:  raspberry_pi_use_wifi | bool
 
-- name: Upgrade System
-  apt:
-    upgrade: dist
-    update_cache: yes
-  when: raspberry_pi_upgrade_system | bool
-
-- name: Install packages
-  apt:
-    name: "{{ raspberry_pi_packages }}"
-    update_cache: yes
+- import_tasks: upgrade_and_packages.yml

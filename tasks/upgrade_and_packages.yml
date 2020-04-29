@@ -1,0 +1,11 @@
+---
+- name: Upgrade System
+  apt:
+    upgrade: dist
+    update_cache: yes
+  when: raspberry_pi_upgrade_system | bool
+
+- name: Install packages
+  apt:
+    name: "{{ raspberry_pi_packages }}"
+    update_cache: yes
