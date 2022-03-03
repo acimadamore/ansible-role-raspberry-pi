@@ -1,7 +1,7 @@
 ---
 - name: Check if Wi-Fi is soft blocked
   command: rfkill -J
-  changed_when: False
+  changed_when: false
   register: rfkill_result
 
 - name: Remove Wi-Fi soft block
@@ -14,4 +14,7 @@
   template:
     src: ./templates/wpa_supplicant.conf.j2
     dest: /etc/wpa_supplicant/wpa_supplicant.conf
+    owner: root
+    group: root
+    mode: '0600'
   notify: apply wi-fi configuration

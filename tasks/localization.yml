@@ -12,3 +12,6 @@
   template:
     src: ./templates/keyboard.j2
     dest: /etc/default/keyboard
+    owner: root
+    group: root
+    mode: '0644'

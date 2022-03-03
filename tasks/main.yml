@@ -7,6 +7,6 @@
   when: raspberry_pi_configure_network | bool
 
 - import_tasks: wifi.yml
-  when:  raspberry_pi_use_wifi | bool
+  when: raspberry_pi_use_wifi | bool
 
 - import_tasks: upgrade_and_packages.yml
