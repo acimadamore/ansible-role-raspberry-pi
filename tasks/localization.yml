@@ -10,7 +10,7 @@
 
 - name: Configure keyboard
   template:
-    src: ./templates/keyboard.j2
+    src: keyboard.j2
     dest: /etc/default/keyboard
     owner: root
     group: root
