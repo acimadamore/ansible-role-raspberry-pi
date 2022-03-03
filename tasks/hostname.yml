@@ -2,6 +2,7 @@
 - name: Configure hostname
   hostname:
     name: "{{ raspberry_pi_hostname }}"
+    use: debian
 
 - name: Change hostname in hosts file
   lineinfile:
