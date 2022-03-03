@@ -74,7 +74,7 @@ A full example:
     raspberry_pi_keyboard_layout: es
     raspberry_pi_hostname:  my-home-pie
     raspberry_pi_configure_network: yes
-    raspberry_pi_ip_adress: 192.168.0.2/24
+    raspberry_pi_ip_address: 192.168.0.2/24
     raspberry_pi_routers: 192.168.0.1
     raspberry_pi_dns_servers: [ 1.1.1.1, 1.0.0.1 ]
     raspberry_pi_use_wifi: true
