@@ -1,0 +1,27 @@
+---
+- name: Converge
+  hosts: all
+
+  pre_tasks:
+    - name: Install missing packages
+      apt:
+        name:
+          - dirmngr
+          - locales
+          - rfkill
+          - tzdata
+          - wpasupplicant
+        update_cache: true
+
+    - name: Create fake /etc/dhcpcd.conf file
+      file:
+        path: /etc/dhcpcd.conf
+        state: touch
+        modification_time: preserve
+        access_time: preserve
+        owner: root
+        group: root
+        mode: '0644'
+
+  roles:
+    - role: ansible-role-raspberry-pi

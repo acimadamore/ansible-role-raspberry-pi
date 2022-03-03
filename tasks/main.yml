@@ -2,6 +2,7 @@
 - import_tasks: localization.yml
 
 - import_tasks: hostname.yml
+  tags: notest
 
 - import_tasks: network.yml
   when: raspberry_pi_configure_network | bool

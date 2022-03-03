@@ -1,10 +1,12 @@
 ---
 - name: apply wi-fi configuration
   command: wpa_cli -i wlan0 reconfigure
+  when: "'notest' not in ansible_skip_tags"
 
 - name: Flush IP from interface
   command: "ip addr flush dev {{ (raspberry_pi_use_wifi | bool) | ternary('wlan0', 'eth0') }}"
   listen: "restart network"
+  when: "'notest' not in ansible_skip_tags"
 
 - name: Restart dhcpcd
   systemd:
@@ -12,3 +14,4 @@
     state: restarted
     daemon_reload: true
   listen: "restart network"
+  when: "'notest' not in ansible_skip_tags"
