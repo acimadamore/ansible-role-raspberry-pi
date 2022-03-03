@@ -34,9 +34,9 @@ Variable                          | Default value | Description/Comment
 **raspberry_pi_upgrade_system**   | true          | Whether or not to upgrade the system.
 **raspberry_pi_packages**         | _see below_   | List of packages to install
 
-The default values are the same used by a fresh install of Raspbian OS. Keyboard model is assumed to be "pc105" with "guess" backspace(check [keyboard(5) man pages](https://manpages.debian.org/jessie/keyboard-configuration/keyboard.5.en.html) for more information.
+The default values are the same used by a fresh install of Raspbian OS. Keyboard model is assumed to be "pc105" with "guess" backspace (check [keyboard(5) man pages](https://manpages.debian.org/jessie/keyboard-configuration/keyboard.5.en.html) for more information).
 
-**Default packages**: apt-transport-https, build-essential, curl, dnsutils, git, htop, lm-sensors, lshw, rsync, screen, unzip, vim. 
+**Default packages**: apt-transport-https, build-essential, curl, dnsutils, git, htop, lm-sensors, lshw, rsync, screen, unzip, vim.
 
 Dependencies
 ------------
@@ -50,7 +50,7 @@ With a Raspberry Pi with SSH enabled and default _pi_ user you could use this sa
 
 ```yaml
 ---
-- hosts: my_rpi 
+- hosts: my_rpi
   become: true
   remote_user: pi
 
@@ -76,7 +76,7 @@ A full example:
     raspberry_pi_configure_network: yes
     raspberry_pi_ip_address: 192.168.0.2/24
     raspberry_pi_routers: 192.168.0.1
-    raspberry_pi_dns_servers: [ 1.1.1.1, 1.0.0.1 ]
+    raspberry_pi_dns_servers: [1.1.1.1, 1.0.0.1]
     raspberry_pi_use_wifi: true
     raspberry_pi_wifi_country: AR
     raspberry_pi_wifi_ssid: myHomeWiFiNetwork
