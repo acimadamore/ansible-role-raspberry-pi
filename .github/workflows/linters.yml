@@ -48,8 +48,8 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Install YAMLlint
-        run: pip3 install ansible-lint
+      - name: Install Ansible Lint
+        run: pip3 install ansible-core ansible-lint
 
       - name: Run ansible-lint
         run: |
