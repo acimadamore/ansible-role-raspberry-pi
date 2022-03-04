@@ -1,0 +1,9 @@
+---
+- name: Apply configuration in /boot/config.txt
+  lineinfile:
+    dest: /boot/config.txt
+    regexp: "^[#\\s]*{{ item.regexp is defined | ternary(item.regexp, item.option) }}"
+    line: "{{ item.option }}={{ item.value }}"
+    firstmatch: true
+    state: "present"
+  with_items: "{{ raspberry_pi_config_options }}"

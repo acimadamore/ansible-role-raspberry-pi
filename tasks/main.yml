@@ -11,3 +11,5 @@
   when: raspberry_pi_use_wifi | bool
 
 - import_tasks: upgrade_and_packages.yml
+
+- import_tasks: configure.yml
