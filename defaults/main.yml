@@ -26,3 +26,5 @@ raspberry_pi_packages:
   - screen
   - unzip
   - vim
+
+raspberry_pi_config_options: []
