@@ -1,0 +1,29 @@
+---
+name: release
+
+on:
+  push:
+    tags: '*'
+  workflow_dispatch:
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      - name: Setup Python 3.x
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install Ansible Galaxy
+        run: pip3 install ansible-core
+
+      - name: Run ansible-galaxy import
+        run: >-
+          ansible-galaxy role import
+          --token ${{ secrets.ANSIBLE_GALAXY_API_KEY  }}
+          ${{ github.repository_owner }} $(echo ${{ github.repository }} | cut -d / -f2)
