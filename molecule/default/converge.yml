@@ -23,5 +23,14 @@
         group: root
         mode: '0644'
 
+    - name: Copy /boot/config.txt sample
+      copy:
+        src: ./config.txt
+        dest: /boot/config.txt
+        force: false
+        owner: root
+        group: root
+        mode: '0651'
+
   roles:
     - role: ansible-role-raspberry-pi

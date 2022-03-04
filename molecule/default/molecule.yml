@@ -33,6 +33,16 @@ provisioner:
         raspberry_pi_packages:
           - git
           - vim
+        raspberry_pi_config_options:
+          - option: dtoverlay
+            value: gpio-ir,gpio_pin=10
+          - option: dtoverlay
+            regexp: dtoverlay=vc4-kms-v3d
+            value: vc5-kms-v4d
+          - option: otg_mode
+            value: 2
+          - option: anonexistentoption
+            value: avalue
 verifier:
   name: ansible
 
