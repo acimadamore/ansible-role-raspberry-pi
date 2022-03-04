@@ -1,11 +1,13 @@
 Ansible Role - Raspberry Pi
 ===========================
 
+[![Ansible Galaxy](https://img.shields.io/badge/ansible--galaxy-raspberry--pi-blue)](https://galaxy.ansible.com/acimadamore/raspberry_pi/)
+
+[![CI](https://github.com/acimadamore/ansible-role-raspberry-pi/actions/workflows/test.yml/badge.svg?event=push)](https://github.com/acimadamore/ansible-role-raspberry-pi/actions?query=workflow%3Atest)
+
 An Ansible Role for setup a Raspberry Pi with Raspbian OS.
 
 Basic configuration of hostname, locales, timezone, keyboard, network and WiFi. Package installation and system upgrade.
-
-[![Ansible Galaxy](https://img.shields.io/badge/ansible--galaxy-raspberry--pi-blue)](https://galaxy.ansible.com/acimadamore/raspberry_pi/)
 
 Requirements
 ------------
