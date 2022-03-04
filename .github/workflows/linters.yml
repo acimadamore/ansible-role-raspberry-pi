@@ -1,0 +1,56 @@
+---
+name: Linters
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+  workflow_dispatch:
+
+defaults:
+  run:
+    working-directory: 'acimadamore.raspberry-pi'
+
+jobs:
+  yamllint:
+    name: YAMLlint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+        with:
+          path: 'acimadamore.raspberry-pi'
+
+      - name: Setup Python 3.x
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install YAMLlint
+        run: pip3 install yamllint
+
+      - name: Run yamllint
+        run: |
+          yamllint .
+
+  ansible-lint:
+    name: Ansible Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+        with:
+          path: 'acimadamore.raspberry-pi'
+
+      - name: Setup Python 3.x
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install YAMLlint
+        run: pip3 install ansible-lint
+
+      - name: Run ansible-lint
+        run: |
+          ansible-lint .
