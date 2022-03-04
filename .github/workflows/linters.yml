@@ -8,10 +8,6 @@ on:
   pull_request:
   workflow_dispatch:
 
-defaults:
-  run:
-    working-directory: 'acimadamore.raspberry-pi'
-
 jobs:
   yamllint:
     name: YAMLlint
@@ -19,8 +15,6 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v3
-        with:
-          path: 'acimadamore.raspberry-pi'
 
       - name: Setup Python 3.x
         uses: actions/setup-python@v2
@@ -40,8 +34,6 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v3
-        with:
-          path: 'acimadamore.raspberry-pi'
 
       - name: Setup Python 3.x
         uses: actions/setup-python@v2
